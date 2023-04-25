@@ -1,13 +1,16 @@
-import './App.css';
-import Pokedex from './Pokedex'
+import "./App.css";
+import Pokegame from "./Pokegame";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Pokedex</h1>
+    <div className='App'>
+      <header className='App-header'>
+        <h1>Pokemon</h1>
       </header>
-      <Pokedex />
+      <Pokegame />
+      <div className='App-footer'>
+        <p>$ PokemOn $</p>
+      </div>
     </div>
   );
 }

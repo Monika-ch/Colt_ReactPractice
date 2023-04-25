@@ -12,3 +12,15 @@
   color: #fff;
   border-bottom: 2px solid mediumturquoise;
 }
+
+.App-footer {
+  margin-top: 2rem;
+  height: 7vh;
+  background-color: #282c34;
+  border-top: 2px solid mediumturquoise;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
