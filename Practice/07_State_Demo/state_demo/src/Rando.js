@@ -22,3 +22,4 @@ class Rando extends Component {
 }
 
 export default Rando;
+ 
