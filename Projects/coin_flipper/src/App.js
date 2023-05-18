@@ -1,10 +1,10 @@
-import './App.css';
-import Flipper from "./Flipper";
+import "./App.css";
+import CoinContainer from "./CoinContainer";
 
 function App() {
   return (
-    <div className="App">
-      <Flipper />
+    <div className='App'>
+      <CoinContainer />
     </div>
   );
 }
