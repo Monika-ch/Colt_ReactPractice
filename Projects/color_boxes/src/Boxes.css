@@ -5,3 +5,15 @@
   align-items: center;
   flex: 1;
 }
+
+h1 {
+  color: aliceblue;
+  margin-bottom: 2em;
+  margin-top: 1em;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+h1 span {
+  color: aqua;
+}
