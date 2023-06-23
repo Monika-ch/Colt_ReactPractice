@@ -1,17 +1,6 @@
 import React, { Component } from "react";
 
 class NumberItem extends Component {
-  // static defaultProps = {
-
-  // };
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {  };
-  // }
-  // changeColor(newColor) {
-  //   this.setState({ color: newColor });
-  // }
-
   render() {
     return (
       <li>
