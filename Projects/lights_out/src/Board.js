@@ -36,7 +36,7 @@ class Board extends Component {
   constructor(props) {
     super(props);
 
-    // TODO: set initial state
+    // set initial state
     this.state = {
       hasWon: false,
       board: this.createBoard(),
@@ -44,7 +44,6 @@ class Board extends Component {
   }
 
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
-
   createBoard() {
     let board = [];
     // TODO: create array-of-arrays of true/false values
@@ -59,14 +58,11 @@ class Board extends Component {
   }
 
   /** handle changing a cell: update board & determine if winner */
-
   flipCellsAround(coord) {
     console.log("FLIPPING!");
     let { ncols, nrows } = this.props;
     let board = this.state.board;
     let [y, x] = coord.split("-").map(Number);
-    //     console.log(y, x);
-    // console.log(coord.split("-").map(Number));
 
     function flipCell(y, x) {
       // if this coord is actually on board, flip it
@@ -74,8 +70,7 @@ class Board extends Component {
         board[y][x] = !board[y][x];
       }
     }
-    // TODO: flip this cell and the cells around it
-
+    // flip this cell and the cells around it
     flipCell(y, x); // flip initial cell
     flipCell(y, x - 1); // flip left
     flipCell(y, x + 1); // flip right
@@ -83,8 +78,8 @@ class Board extends Component {
     flipCell(y + 1, x); // flip above
 
     // win when every cell is turned off
-    // TODO: determine is the game has been won
-    let hasWon = false;
+    // determine is the game has been won
+    let hasWon = board.every((row) => row.every((cell) => !cell));
     this.setState({ board, hasWon: hasWon });
   }
 
@@ -92,12 +87,11 @@ class Board extends Component {
 
   render() {
     // if the game is won, just show a winning msg & render nothing else
-
-    // TODO
+    if (this.state.hasWon) {
+      return <h1>YOU WON!!!</h1>;
+    }
 
     // make table board
-
-    // TODO
     let tblBoard = [];
     for (let y = 0; y < this.props.nrows; y++) {
       let row = [];
