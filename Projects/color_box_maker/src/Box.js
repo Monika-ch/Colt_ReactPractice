@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { v4 as uuid } from "uuid";
 
 class Box extends Component {
   render() {
@@ -11,7 +10,7 @@ class Box extends Component {
     return (
       <div>
         <div style={style} />
-        <button>X</button>
+        <button onClick={this.props.removeBox}>X</button>
       </div>
     );
   }

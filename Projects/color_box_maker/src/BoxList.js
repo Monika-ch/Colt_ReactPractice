@@ -1,22 +1,34 @@
 import React, { Component } from "react";
-// import BoxListForm from "./BoxListForm";
+import NewBoxForm from "./NewBoxForm";
 import Box from "./Box";
-import { v4 as uuid } from "uuid";
 
 class BoxList extends Component {
   constructor(props) {
     super(props);
-    this.state = { boxes: [{ width: 10, height: 10, color: "orange" }] };
-    // this.addItem = this.addItem.bind(this);
+    this.state = { boxes: [] };
+    this.create = this.create.bind(this);
+  }
+  create(newBox) {
+    this.setState({ boxes: [...this.state.boxes, newBox] });
+  }
+  remove(id) {
+    this.setState({ boxes: this.state.boxes.filter((box) => box.id !== id) });
   }
   render() {
     const boxes = this.state.boxes.map((box) => (
-      <Box width={box.width} height={box.width} color={box.color} />
+      <Box
+        key={box.id}
+        id={box.id}
+        width={box.width}
+        height={box.width}
+        color={box.color}
+        removeBox={() => this.remove(box.id)}
+      />
     ));
     return (
       <div>
         <h1>Color Box Maker Thingy</h1>
-        {/* <BoxListForm /> */}
+        <NewBoxForm createBox={this.create} />
         {boxes}
       </div>
     );
