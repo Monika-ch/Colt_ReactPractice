@@ -5,12 +5,18 @@ import "./NewTodoForm.css";
 class NewTodoForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { newTodo: "" };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleChange(evt) {}
-  handleSubmit(evt) {}
+  handleChange(evt) {
+    this.setState({ newTodo: evt.target.value });
+  }
+  handleSubmit(evt) {
+    evt.preventDefault();
+    this.props.createTodo(this.state.newTodo);
+    this.setState({ newTodo: "" });
+  }
   render() {
     return (
       <div className='NewTodoForm'>
@@ -21,10 +27,11 @@ class NewTodoForm extends Component {
               type='text'
               id='newTodo'
               name='newTodo'
-              value={this.state.newTodo}
               placeholder='New Todo'
+              value={this.state.newTodo}
+              onChange={this.handleChange}
             />
-            <button onClick={() => {}}>Add Todo</button>
+            <button>Add Todo</button>
           </div>
         </form>
       </div>

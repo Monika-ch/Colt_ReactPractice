@@ -6,10 +6,14 @@ import "./TodoList.css";
 class TodoList extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { todos: [] };
+    this.createTodo = this.createTodo.bind(this);
   }
-
+  createTodo(newTodo) {
+    this.setState({ todos: [...this.state.todos, newTodo] });
+  }
   render() {
+    let todos = this.state.todos.map((todo) => <Todo displayTodo={todo} />);
     return (
       <div className='Todo'>
         <div>
@@ -19,7 +23,8 @@ class TodoList extends Component {
         </div>
         <Todo displayTodo='milk my cat' />
         <Todo displayTodo='walk my dog' />
-        <NewTodoForm />
+        {todos}
+        <NewTodoForm createTodo={this.createTodo} />
       </div>
     );
   }
