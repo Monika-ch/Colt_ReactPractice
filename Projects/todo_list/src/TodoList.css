@@ -5,7 +5,7 @@
   margin-top: 4em;
   color: rgb(71, 58, 58);
   background-color: aquamarine;
-  border: 10px solid rgb(235, 233, 233);
+  border: 10px solid rgba(235, 233, 233, 0.897);
 }
 .Todo > div {
   padding: 1em 2em;
