@@ -9,7 +9,7 @@ class TodoList extends Component {
     this.state = {
       todos: [
         { task: "milk my cat", key: "#12345", id: "#12345" },
-        { task: "walk my dog", key: "#54321", id: "#12345" },
+        { task: "walk my dog", key: "#54321", id: "#54321" },
       ],
     };
     this.createTodo = this.createTodo.bind(this);
@@ -19,7 +19,7 @@ class TodoList extends Component {
     this.setState({ todos: [...this.state.todos, newTodo] });
   }
   removeTodo(id) {
-    this.setState({ todos: this.state.todos.filter((todo) => todo.id !== id) });
+    this.setState({ todos: this.state.todos.filter((t) => t.id !== id) });
   }
   render() {
     let todos = this.state.todos.map((todo) => (

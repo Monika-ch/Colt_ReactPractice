@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import "./Todo.css";
 
 class Todo extends Component {
+  constructor(props) {
+    super(props);
+    this.handleRemove = this.handleRemove.bind(this);
+  }
+  handleRemove() {
+    this.props.removeTodo(this.props.id);
+  }
   render() {
     return (
       <li>
@@ -9,7 +16,7 @@ class Todo extends Component {
           <p>{this.props.task}</p>
           <span>
             <button onClick={this.edit}>Edit</button>
-            <button onClick={this.props.removeTodo}>Delete</button>
+            <button onClick={this.handleRemove}>Delete</button>
           </span>
         </div>
       </li>
