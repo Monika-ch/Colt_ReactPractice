@@ -1,0 +1,12 @@
+
+.NewTodoForm input {
+  padding: 10px;
+  width: 63%;
+}
+.NewTodoForm button {
+  width: 30%;
+  padding: 11px;
+  background-color: aquamarine;
+  border: 1px solid rgb(71, 58, 58);
+  cursor: pointer;
+}

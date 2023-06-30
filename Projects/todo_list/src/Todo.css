@@ -1,0 +1,15 @@
+.TodoItem {
+  display: flex;
+  margin-bottom: 10px;
+  background-color: rgba(0, 255, 255, 0.342);
+}
+.TodoItem p {
+  margin: 0;
+}
+.TodoItem span {
+  margin-left: auto;
+}
+.TodoItem button {
+  border: none;
+  background-color: rgba(127, 255, 212, 0);
+}
