@@ -5,30 +5,31 @@ import "./NewTodoForm.css";
 class NewTodoForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { newTodo: "" };
+    this.state = { task: "" };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(evt) {
-    this.setState({ newTodo: evt.target.value });
+    this.setState({ [evt.target.name]: evt.target.value });
   }
   handleSubmit(evt) {
     evt.preventDefault();
-    this.props.createTodo(this.state.newTodo);
-    this.setState({ newTodo: "" });
+    let newTodo = { ...this.state, id: uuid() };
+    this.props.createTodo(newTodo);
+    this.setState({ task: "" });
   }
   render() {
     return (
       <div className='NewTodoForm'>
-        <h3>New Todo</h3>
         <form onSubmit={this.handleSubmit}>
           <div>
+            <label htmlFor='task'>New Todo</label>
             <input
               type='text'
-              id='newTodo'
-              name='newTodo'
+              id='task'
+              name='task'
               placeholder='New Todo'
-              value={this.state.newTodo}
+              value={this.state.task}
               onChange={this.handleChange}
             />
             <button>Add Todo</button>
