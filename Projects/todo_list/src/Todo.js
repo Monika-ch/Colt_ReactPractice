@@ -9,6 +9,7 @@ class Todo extends Component {
     this.toggleForm = this.toggleForm.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
   }
   handleRemove() {
     this.props.removeTodo(this.props.id);
@@ -23,14 +24,18 @@ class Todo extends Component {
     evt.preventDefault();
     //take new task data and pass up to parent
     this.props.updateTodo(this.props.id, this.state.task);
-    this.setState({ isEditing: false }); // you can either reset isEditing to false or toggleForm
+    this.setState({ isEditing: false });
+    // you can either reset isEditing to false or call toggleForm
     // this.toggleForm();
+  }
+  handleToggle(evt) {
+    this.props.toggleTodo(this.props.id);
   }
   render() {
     let result;
     if (this.state.isEditing) {
       result = (
-        <div>
+        <div className='TodoItem'>
           <form onSubmit={this.handleUpdate}>
             <input
               type='text'
@@ -39,24 +44,27 @@ class Todo extends Component {
               value={this.state.task}
               onChange={this.handleChange}
             />
-            <button>Save</button>
+            <button className="save">Save</button>
           </form>
         </div>
       );
     } else {
       result = (
-        <li>
-          <div className='TodoItem'>
-            <p>{this.props.task}</p>
-            <span>
-              <button onClick={this.toggleForm}>Edit</button>
-              <button onClick={this.handleRemove}>Delete</button>
-            </span>
-          </div>
-        </li>
+        <div className='TodoItem'>
+          <p
+            className={this.props.completed ? "completed" : ""}
+            onClick={this.handleToggle}
+          >
+            {this.props.task}
+          </p>
+          <span>
+            <button onClick={this.toggleForm}>Edit</button>
+            <button onClick={this.handleRemove}>Delete</button>
+          </span>
+        </div>
       );
     }
-    return result;
+    return <li>{result}</li>;
   }
 }
 

@@ -8,13 +8,14 @@ class TodoList extends Component {
     super(props);
     this.state = {
       todos: [
-        { task: "milk my cat", key: "#12345", id: "#12345" },
-        { task: "walk my dog", key: "#54321", id: "#54321" },
+        // { task: "milk my cat", key: "#12345", id: "#12345" },
+        // { task: "walk my dog", key: "#54321", id: "#54321" },
       ],
     };
     this.createTodo = this.createTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
     this.updateTodo = this.updateTodo.bind(this);
+    this.toggleCompletion = this.toggleCompletion.bind(this);
   }
   createTodo(newTodo) {
     this.setState({ todos: [...this.state.todos, newTodo] });
@@ -32,14 +33,23 @@ class TodoList extends Component {
     });
     this.setState({ todos: updatedTodos });
   }
+  toggleCompletion(id) {
+    const updatedTodos = this.state.todos.map((todo) => {
+      if (todo.id === id) return { ...todo, completed: !todo.completed };
+      return todo;
+    });
+    this.setState({ todos: updatedTodos });
+  }
   render() {
     let todos = this.state.todos.map((todo) => (
       <Todo
         key={todo.id}
         id={todo.id}
         task={todo.task}
+        completed={todo.completed}
         removeTodo={this.removeTodo}
         updateTodo={this.updateTodo}
+        toggleTodo={this.toggleCompletion}
       />
     ));
     return (

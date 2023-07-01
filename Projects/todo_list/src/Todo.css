@@ -15,3 +15,21 @@
   background-color: rgba(127, 255, 212, 0);
   cursor: pointer;
 }
+.TodoItem .completed {
+  color: gray;
+  text-decoration: line-through;
+}
+.TodoItem input {
+  padding: 10px;
+  width: 63%;
+}
+.TodoItem .save {
+  width: 30%;
+  padding: 11px;
+  background-color: aqua;
+  border: 1px solid rgb(71, 58, 58);
+  cursor: pointer;
+}
+.TodoItem form{
+  width: 100%;
+}
